@@ -11,14 +11,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.*;
 
 class FilterByMaxSpeedTest extends TestCase {
 
     FilterByMaxSpeed filterByMaxSpeed = new FilterByMaxSpeed();
 
     @Test
-    void filter() {
+    public void testFilter() {
         List<Car> actualCars = asList(
                 new Car(GeneralInfo.builder()
                         .setMaxSpeed(70)
@@ -42,7 +41,7 @@ class FilterByMaxSpeedTest extends TestCase {
     }
 
     @Test
-    void enterLimitation() {
+    public void testEnterLimitation() {
         String enteredCommand = "90\n110\n";
         System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
         filterByMaxSpeed.enterLimitation(new Scanner(System.in));

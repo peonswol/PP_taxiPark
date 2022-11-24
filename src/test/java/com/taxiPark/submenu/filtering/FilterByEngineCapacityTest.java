@@ -11,14 +11,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.*;
 
 class FilterByEngineCapacityTest extends TestCase {
 
     FilterByEngineCapacity filterByEngineCapacity = new FilterByEngineCapacity();
 
     @Test
-    void filter() {
+    public void testFilter() {
         List<Car> actualCars = asList(
                 new Car(null, null,
                         FuelInfo.builder()
@@ -44,7 +43,7 @@ class FilterByEngineCapacityTest extends TestCase {
     }
 
     @Test
-    void enterLimitation() {
+    public void testEnterLimitation() {
         String enteredCommand = "1\n20\n";
         System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
         filterByEngineCapacity.enterLimitation(new Scanner(System.in));

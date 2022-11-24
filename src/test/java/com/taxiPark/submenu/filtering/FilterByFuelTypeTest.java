@@ -18,7 +18,7 @@ class FilterByFuelTypeTest extends TestCase {
     FilterByFuelType filterByFuelType = new FilterByFuelType();
 
     @Test
-    void enterLimitation() {
+    public void testEnterLimitation() {
         String enteredCommand = "a c\n";
         System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
         filterByFuelType.enterLimitation(new Scanner(System.in));
@@ -27,7 +27,7 @@ class FilterByFuelTypeTest extends TestCase {
     }
 
     @Test
-    void filter() {
+    public void testFilter() {
         List<Car> actualCars = asList(
                 new Car(null, null,
                         FuelInfo.builder()

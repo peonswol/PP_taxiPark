@@ -22,15 +22,7 @@ class EditCarDataTest extends TestCase {
     }
 
     @Test
-    void execute() {
-    }
-
-    @Test
-    void showMenu() {
-    }
-
-    @Test
-    void chooseChangeMark() {
+    void testChooseChangeMark() {
         String enteredCommand = "2\n";
         System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
 
@@ -179,6 +171,14 @@ class EditCarDataTest extends TestCase {
     }
 
     @Test
-    void saveChange() {
+    public void testSaveChange() {
+    }
+
+    @Test
+    public void testExecute() {
+    }
+
+    @Test
+    public void testShowMenu() {
     }
 }

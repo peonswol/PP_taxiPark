@@ -73,7 +73,7 @@ public class FuelInfoBuilderTest {
     }
 
     @Test
-    public void toListString(){
+    public void testToListString(){
         fuelInfo = FuelInfo.builder()
                 .setFuelType("fuel type")
                 .setEngineCapacity(1.1)

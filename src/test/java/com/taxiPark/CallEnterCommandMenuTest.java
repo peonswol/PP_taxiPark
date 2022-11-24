@@ -19,10 +19,6 @@ public class CallEnterCommandMenuTest {
     public void setUp() throws Exception {
     }
 
-    @After
-    public void tearDown(){
-    }
-
     @Test
     public void testEnterCommandCheckException() {
         String enteredCommand = "4\n";

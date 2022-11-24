@@ -73,8 +73,25 @@ class MenuSelectCarByIDTest extends TestCase {
     }
 
     @Test
-    public void testEditCarData() {
+    public void testEnterCommand() {
+        String enteredCommand = "2\n";
+        System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
 
+        int actualCommand = menuSelectCarByID.enterCommand(new Scanner(System.in));
+        assertEquals(2, actualCommand);
+    }
+
+    @Test
+    public void testEnterID() {
+        String enteredID = "4\n";
+        System.setIn(new ByteArrayInputStream(enteredID.getBytes()));
+
+        int actualID = menuSelectCarByID.enterID(new Scanner(System.in));
+        assertEquals(4, actualID);
+    }
+
+    @Test
+    public void testEditCarData() {
     }
 
     @Test
@@ -90,26 +107,6 @@ class MenuSelectCarByIDTest extends TestCase {
     }
 
     @Test
-    public void chooseCommand() {
-    }
-
-    @Test
-    public void enterCommand() {
-        String enteredCommand = "2\n";
-        System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
-
-        int actualCommand = menuSelectCarByID.enterCommand(new Scanner(System.in));
-        assertEquals(2, actualCommand);
-
-    }
-
-    @Test
-    public void testEnterID() {
-        String enteredID = "4\n";
-        System.setIn(new ByteArrayInputStream(enteredID.getBytes()));
-
-        int actualID = menuSelectCarByID.enterID(new Scanner(System.in));
-        assertEquals(4, actualID);
-
+    public void testChooseCommand() {
     }
 }

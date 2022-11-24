@@ -26,12 +26,10 @@ class CarTest extends TestCase {
         System.setOut(new PrintStream(byteArrayOutputStream));
         Car.setKstCar(0);
         car = new Car(new GeneralInfo(), new TechnicInfo(), new FuelInfo(), new MoreInformation());
-
     }
 
     @Test
-    public void toListString() {
-
+    public void tesToListString() {
         assertEquals("| №1     \t| null              | 0                | 0,00               | null              | 0,00      | --- | null        | 0,00            | 0,00             ", car.toListString());
     }
 

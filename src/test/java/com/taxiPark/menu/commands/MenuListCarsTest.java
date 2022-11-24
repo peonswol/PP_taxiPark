@@ -28,18 +28,6 @@ class MenuListCarsTest extends TestCase {
     }
 
     @Test
-    void execute() {
-    }
-
-    @Test
-    void setFilteredAndSortedCars() {
-    }
-
-    @Test
-    public void testGetFilteredAndSortedCars() {
-    }
-
-    @Test
     public void testShowList() {
         List<Car> cars = new ArrayList<>();
         Car car = Mockito.mock(Car.class);
@@ -79,5 +67,10 @@ class MenuListCarsTest extends TestCase {
                         "| ID\t\t|\tmark and model\t| year manufacture |\t\tcost\t\t|\t\tcolor\t\t| max speed | --- |\tfuel type\t| engine capacity | fuel consumption for 100 km\n"
                 + Color.PURPLE+ "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" + Color.ANSI_RESET, byteArrayOutputStream.toString().trim());
 
+    }
+
+    @Test
+    //todo do
+    public void testExecute() {
     }
 }

@@ -11,14 +11,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.*;
 
 class FilterByYearTest extends TestCase {
 
     FilterByYear filterByYear = new FilterByYear();
 
     @Test
-    void filter() {
+    public void testFilter() {
         List<Car> actualCars = asList(
                 new Car(GeneralInfo.builder()
                         .setYearManufacture(2007)
@@ -42,7 +41,7 @@ class FilterByYearTest extends TestCase {
     }
 
     @Test
-    void enterLimitation() {
+    public void testEnterLimitation() {
         String enteredCommand = "2010\n2020\n";
         System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
         filterByYear.enterLimitation(new Scanner(System.in));

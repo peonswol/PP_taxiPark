@@ -23,10 +23,6 @@ class FilteringTest extends TestCase {
         System.setOut(new PrintStream(byteArrayOutputStream));
     }
 
-    @Test
-    void sizeOfCommands() {
-    }
-
     /*@Test
     void callIntoMenuAndShowMenu() {
         filtering.callIntoMenu();
@@ -47,8 +43,13 @@ class FilteringTest extends TestCase {
                 "Enter command :\t", systemOutRule.getLogWithNormalizedLineSeparator());
     }
 */
+
     @Test
     public void testConstructor(){
         assertEquals(9, filtering.sizeOfCommands());
+    }
+
+    @Test
+    void testSizeOfCommands() {
     }
 }

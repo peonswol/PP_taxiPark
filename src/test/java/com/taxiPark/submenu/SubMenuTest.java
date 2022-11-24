@@ -1,16 +1,7 @@
 package com.taxiPark.submenu;
 
-import com.taxiPark.CallEnterCommandMenu;
-import com.taxiPark.menu.commands.MenuExit;
-import com.taxiPark.submenu.commands.ISubMenu;
 import junit.framework.TestCase;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
-import java.util.List;
-import java.util.Scanner;
-
-import static org.mockito.Mockito.*;
 
 class SubMenuTest extends TestCase {
 
@@ -43,17 +34,16 @@ class SubMenuTest extends TestCase {
 
         verify(subMenuMock).execute(0, scanner, null);
     }*/
-
     @Test
-    void callIntoMenu() {
-    }
-
-    @Test
-    void showMenu() {
-    }
-
-    @Test
-    void sizeOfCommands() {
+    public void testSizeOfCommands() {
         assertEquals(6, subMenu.sizeOfCommands());
+    }
+
+    @Test
+    public void testCallIntoMenu() {
+    }
+
+    @Test
+    public void testShowMenu() {
     }
 }

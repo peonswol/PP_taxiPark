@@ -16,14 +16,9 @@ class MainMenuTaxiParkTest extends TestCase {
     private final PrintStream standardOut = System.out; // new PrintStream(byteArrayOutputStream);
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
-
     @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(byteArrayOutputStream));
-    }
-
-    @Test
-    public void testExecute() {
     }
 
     @Test
@@ -34,10 +29,6 @@ class MainMenuTaxiParkTest extends TestCase {
     @Test
     public void testSizeOfCommands() {
         assertEquals(5, mainMenuTaxiPark.sizeOfCommands());
-    }
-
-    @Test
-    public void testOpenTaxiParkProgramme() {
     }
 
     @Test
@@ -53,5 +44,13 @@ class MainMenuTaxiParkTest extends TestCase {
                 \t[0] - exit
 
                 Enter command :""", byteArrayOutputStream.toString().trim());
+    }
+
+    @Test
+    public void testExecute() {
+    }
+
+    @Test
+    public void testOpenTaxiParkProgramme() {
     }
 }

@@ -11,14 +11,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.*;
 
 class FilterByCostTest extends TestCase {
 
     FilterByCost filterByCost = new FilterByCost();
 
     @Test
-    void filter() {
+    public void testFilter() {
         List<Car> actualCars = asList(
                 new Car(GeneralInfo.builder()
                         .setCost(7000)
@@ -41,7 +40,7 @@ class FilterByCostTest extends TestCase {
     }
 
     @Test
-    void enterLimitation() {
+    public void testEnterLimitation() {
 
         String enteredCommand = "5000\n10000\n";
         System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));

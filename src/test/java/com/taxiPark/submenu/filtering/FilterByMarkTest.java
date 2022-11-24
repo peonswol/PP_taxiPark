@@ -18,7 +18,7 @@ class FilterByMarkTest extends TestCase {
     FilterByMark filterByMark = new FilterByMark();
 
     @Test
-    void enterLimitation() {
+    public void testEnterLimitation() {
         String enteredCommand = "a c\n";
         System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
         filterByMark.enterLimitation(new Scanner(System.in));
@@ -26,7 +26,7 @@ class FilterByMarkTest extends TestCase {
     }
 
     @Test
-    void filter() {
+    public void testFilter() {
         List<Car> actualCars = asList(
                 new Car(GeneralInfo.builder()
                         .setMarkAndModel("a")

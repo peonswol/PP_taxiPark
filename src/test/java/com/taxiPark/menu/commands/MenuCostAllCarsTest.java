@@ -26,18 +26,6 @@ class MenuCostAllCarsTest extends TestCase {
         System.setOut(new PrintStream(byteArrayOutputStream));
     }
 
-
-   /* @Test
-    void testExecute() {
-        Scanner scanner = new Scanner(System.in);
-
-        doNothing().when(menuCostAllCars.subMenu).openSubMenu(scanner, null);
-
-        menuCostAllCars.execute(scanner, null);
-        assertEquals("total cost of the fleet ($ˍ$) - 0", byteArrayOutputStream.toString().trim());
-
-    }*/
-
     @Test
     public void testSumPriceCars() {
         List<Car> cars = asList(
@@ -54,4 +42,16 @@ class MenuCostAllCarsTest extends TestCase {
 
         assertEquals(34000.0, menuCostAllCars.sumPriceCars(cars));
     }
+
+
+   /* @Test
+    public void testExecute() {
+        Scanner scanner = new Scanner(System.in);
+
+        doNothing().when(menuCostAllCars.subMenu).openSubMenu(scanner, null);
+
+        menuCostAllCars.execute(scanner, null);
+        assertEquals("total cost of the fleet ($ˍ$) - 0", byteArrayOutputStream.toString().trim());
+
+    }*/
 }

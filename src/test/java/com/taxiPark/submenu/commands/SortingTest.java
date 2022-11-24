@@ -25,9 +25,6 @@ class SortingTest extends TestCase {
     @Mock
     List<Car> actualCars;
 
-    @Mock
-    MenuListCars menuListCars;
-
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -146,16 +143,6 @@ class SortingTest extends TestCase {
 
     }
 
-
-    @Test
-    public void testExecute() {
-    }
-
-    @Test
-    public void testChooseSorting() {
-
-    }
-
     @Test
     public void testShowMenu() {
         assertEquals("""
@@ -173,11 +160,20 @@ class SortingTest extends TestCase {
     }
 
     @Test
+    public void testSizeOfCommands() {
+        assertEquals(6, sorting.sizeOfCommands());
+    }
+
+    @Test
     public void testCallIntoMenu() {
     }
 
     @Test
-    public void testSizeOfCommands() {
-        assertEquals(6, sorting.sizeOfCommands());
+    public void testExecute() {
+    }
+
+    @Test
+    public void testChooseSorting() {
+
     }
 }
