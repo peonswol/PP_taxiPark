@@ -9,14 +9,13 @@ import org.mockito.Mockito;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class AddingCarsFromFileTest extends TestCase {
 
     AddingCarsFromFile addingCarsFromFile = new AddingCarsFromFile();
 
-    private final PrintStream standardOut = System.out; // new PrintStream(byteArrayOutputStream);
+    private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
 
@@ -24,12 +23,9 @@ class AddingCarsFromFileTest extends TestCase {
     public void setUp(){
         System.setOut(new PrintStream(byteArrayOutputStream));
     }
-    /*@Test
-    void addCarsFromFile() {
-    }*/
 
     @Test
-    void add() {
+    public void testAdd() {
         addingCarsFromFile.workWithFile = Mockito.mock(WorkWithFile.class);
 
         doNothing().when(addingCarsFromFile.workWithFile).addCars(null);
@@ -39,7 +35,11 @@ class AddingCarsFromFileTest extends TestCase {
         verify(addingCarsFromFile.workWithFile, times(1)).addCars(null);
     }
 
+    /*@Test
+    void addCarsFromFile() {
+    }*/
+
     @Test
-    void downloadCars() {
+    public void testDownloadCars() {
     }
 }

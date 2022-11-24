@@ -1,7 +1,6 @@
 package com.taxiPark.menu.addCar.addNewCar;
 
 import com.taxiPark.WorkWithFile;
-import com.taxiPark.park.AutoPark;
 import com.taxiPark.park.car.Car;
 import com.taxiPark.park.car.component.FuelInfo;
 import com.taxiPark.park.car.component.GeneralInfo;
@@ -10,7 +9,6 @@ import com.taxiPark.park.car.component.TechnicInfo;
 import com.taxiPark.submenu.commands.ClearSelection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
@@ -19,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -30,10 +27,10 @@ class AddingNewCarByWriteTest extends AddingNewCarByWrite{
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
+
         addingNewCarByWrite.workWithFile = Mockito.mock(WorkWithFile.class);
         addingNewCarByWrite.clearSelection = Mockito.mock(ClearSelection.class);
     }
-
 
     @Test
     void testCallAddingCarToFileAndList() {
@@ -47,11 +44,6 @@ class AddingNewCarByWriteTest extends AddingNewCarByWrite{
         addingNewCarByWrite.callAddingCarToFileAndList(new Scanner(System.in), cars, car);
 
         assertEquals(1, cars.size());
-
-    }
-
-    @Test
-    void testInitCarData() {
     }
 
     @Test
@@ -102,7 +94,6 @@ class AddingNewCarByWriteTest extends AddingNewCarByWrite{
 
         GeneralInfo generalInfoActual = addingNewCarByWrite.createNewGeneralInfo();
         assertEquals("GeneralInfo", generalInfoActual.getClass().getSimpleName());
-
     }
 
     @Test
@@ -140,5 +131,9 @@ class AddingNewCarByWriteTest extends AddingNewCarByWrite{
     void testAddNewCarToFile() {
         //todo
         //verify(workWithFile, times(1).writeObjToFile);
+    }
+
+    @Test
+    void testInitCarData() {
     }
 }

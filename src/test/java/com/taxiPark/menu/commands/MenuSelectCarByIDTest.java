@@ -15,60 +15,19 @@ import java.util.List;
 import java.util.Scanner;
 
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.when;
 
 class MenuSelectCarByIDTest extends TestCase {
 
     MenuSelectCarByID menuSelectCarByID = new MenuSelectCarByID();
 
-    private final PrintStream standardOut = System.out; // new PrintStream(byteArrayOutputStream);
-    private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    private final PrintStream standardOut = System.out;
 
+    private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
     @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(byteArrayOutputStream));
-    }
-
-    @Test
-    void execute() {
-    }
-
-    @Test
-    void showCarAndOption() {
-    }
-
-    @Test
-    public void testSearchAndShowCarByID() {
-        Car.setKstCar(0);
-        assertEquals(2, menuSelectCarByID.searchAndShowCarByID(2, asList(new Car(), new Car(), new Car())).getCarID());
-    }
-
-    @Test
-    public void testEnterID() {
-        String enteredID = "4\n";
-        System.setIn(new ByteArrayInputStream(enteredID.getBytes()));
-
-        int actualID = menuSelectCarByID.enterID(new Scanner(System.in));
-        assertEquals(4, actualID);
-
-    }
-
-    @Test
-    public void enterCommand() {
-        String enteredCommand = "2\n";
-        System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
-
-        int actualCommand = menuSelectCarByID.enterCommand(new Scanner(System.in));
-        assertEquals(2, actualCommand);
-
-    }
-
-
-    @Test
-    public void chooseCommand() {
     }
 
     @Test
@@ -94,10 +53,10 @@ class MenuSelectCarByIDTest extends TestCase {
         assertEquals(2, Car.getKstCar());
     }
 
-
     @Test
-    public void deleteFileCar() {
+    public void testDeleteFileCar() {
         menuSelectCarByID.workWithFile = Mockito.mock(WorkWithFile.class);
+
         Car car = Mockito.mock(Car.class);
         when(menuSelectCarByID.workWithFile.deleteFileCar(car)).thenReturn(true);
 
@@ -108,11 +67,49 @@ class MenuSelectCarByIDTest extends TestCase {
     }
 
     @Test
-    public void editCarData() {
+    public void testSearchAndShowCarByID() {
+        Car.setKstCar(0);
+        assertEquals(2, menuSelectCarByID.searchAndShowCarByID(2, asList(new Car(), new Car(), new Car())).getCarID());
+    }
+
+    @Test
+    public void testEditCarData() {
 
     }
 
     @Test
-    public void additionalOptions() {
+    public void testAdditionalOptions() {
+    }
+
+    @Test
+    public void testExecute() {
+    }
+
+    @Test
+    public void testShowCarAndOption() {
+    }
+
+    @Test
+    public void chooseCommand() {
+    }
+
+    @Test
+    public void enterCommand() {
+        String enteredCommand = "2\n";
+        System.setIn(new ByteArrayInputStream(enteredCommand.getBytes()));
+
+        int actualCommand = menuSelectCarByID.enterCommand(new Scanner(System.in));
+        assertEquals(2, actualCommand);
+
+    }
+
+    @Test
+    public void testEnterID() {
+        String enteredID = "4\n";
+        System.setIn(new ByteArrayInputStream(enteredID.getBytes()));
+
+        int actualID = menuSelectCarByID.enterID(new Scanner(System.in));
+        assertEquals(4, actualID);
+
     }
 }
