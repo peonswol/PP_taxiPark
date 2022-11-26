@@ -4,6 +4,8 @@ import com.taxiPark.park.car.Car;
 import com.taxiPark.submenu.filtering.*;
 import com.taxiPark.CallEnterCommandMenu;
 import com.taxiPark.menu.commands.MenuListCars;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.Scanner;
 public class Filtering implements ISubMenu {
 
     private final List<ATypeFiltering> menu = new ArrayList<>();
+
+    private static final Logger logger = LoggerFactory.getLogger(Filtering.class);
 
     public Filtering(){
 
@@ -37,6 +41,7 @@ public class Filtering implements ISubMenu {
             CallEnterCommandMenu callEnterCommandMenu = new CallEnterCommandMenu();
             command = callEnterCommandMenu.enterCommandCheckException(scanner, sizeOfCommands());
             filtering.execute(command, scanner, cars);
+            logger.info("Відфільровано машини, командою - "+command+"--->"+menu.get(command).getClass().getSimpleName());
         }
     }
 

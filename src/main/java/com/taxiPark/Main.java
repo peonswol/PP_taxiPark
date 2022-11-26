@@ -10,9 +10,13 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] arg) {
 
         Scanner scanner = new Scanner(System.in);
+
+        logger.info("Програма почала роботу.");
 
         AddingCarsFromFile addCarsFromFile = new AddingCarsFromFile();
         addCarsFromFile.addCarsFromFile(AutoPark.getCars());

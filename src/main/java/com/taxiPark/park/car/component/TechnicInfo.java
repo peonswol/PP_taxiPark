@@ -1,5 +1,8 @@
 package com.taxiPark.park.car.component;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Serializable;
 
 public class TechnicInfo implements Serializable {
@@ -7,12 +10,18 @@ public class TechnicInfo implements Serializable {
     private String transmission; //коробка передач
     private String driveType; //тип приводу
 
+    private static final Logger logger = LoggerFactory.getLogger(TechnicInfo.class);
+
     public String getTransmission() {
         return transmission;
     }
 
     public String getDriveType() {
         return driveType;
+    }
+
+    public TechnicInfo() {
+        logger.info("Створено новий об'єкт класу TechnicInfo.");
     }
 
     @Override

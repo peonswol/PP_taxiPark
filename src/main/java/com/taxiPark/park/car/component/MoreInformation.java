@@ -1,5 +1,8 @@
 package com.taxiPark.park.car.component;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Serializable;
 
 public class MoreInformation implements Serializable {
@@ -7,6 +10,8 @@ public class MoreInformation implements Serializable {
     private String state;
     private String securityTypes;
     private String comfortTypes;
+
+    private static final Logger logger = LoggerFactory.getLogger(MoreInformation.class);
 
     public String getState() {
         return state;
@@ -18,6 +23,10 @@ public class MoreInformation implements Serializable {
 
     public String getComfortTypes() {
         return comfortTypes;
+    }
+
+    public MoreInformation() {
+        logger.info("Створено новий об'єкт класу Car.");
     }
 
     @Override

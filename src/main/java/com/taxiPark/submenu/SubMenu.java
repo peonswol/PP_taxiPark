@@ -9,6 +9,8 @@ import com.taxiPark.submenu.commands.ISubMenu;
 import com.taxiPark.submenu.commands.Sorting;
 import com.taxiPark.CallEnterCommandMenu;
 import com.taxiPark.menu.MainMenuTaxiPark;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,8 @@ import java.util.Scanner;
 
 public class SubMenu {
     protected List<ISubMenu> menu = new ArrayList<>();
+
+    private static final Logger logger = LoggerFactory.getLogger(SubMenu.class);
 
     protected CallEnterCommandMenu callEnterCommandMenu = new CallEnterCommandMenu();
     public SubMenu(){
@@ -30,6 +34,7 @@ public class SubMenu {
 
     protected void execute(int command, Scanner scanner, List<Car> cars){
         menu.get(command).execute(scanner, cars);
+        logger.info("Викликано команду підменю - "+menu.get(command).getClass().getSimpleName());
     }
 
     public void openSubMenu(SubMenu subMenu, Scanner scanner, List<Car> cars) {
@@ -39,6 +44,7 @@ public class SubMenu {
         subMenu.callIntoMenu();
         command = callEnterCommandMenu.enterCommandCheckException(scanner, sizeOfCommands());
         subMenu.execute(command, scanner, cars);
+
     }
 
     protected void callIntoMenu(){

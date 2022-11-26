@@ -5,6 +5,8 @@ import com.taxiPark.park.car.component.FuelInfo;
 import com.taxiPark.park.car.component.GeneralInfo;
 import com.taxiPark.park.car.component.MoreInformation;
 import com.taxiPark.park.car.component.TechnicInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.io.Serializable;
@@ -18,6 +20,8 @@ public class Car implements Serializable {
     private FuelInfo fuelInfo;
     private MoreInformation moreInformation;
 
+    private static final Logger logger = LoggerFactory.getLogger(Car.class);
+
     public Car(GeneralInfo generalInfo, TechnicInfo technicInfo, FuelInfo fuelInfo, MoreInformation moreInformation) {
         this.generalInfo = generalInfo;
         this.technicInfo = technicInfo;
@@ -25,6 +29,9 @@ public class Car implements Serializable {
         this.moreInformation = moreInformation;
         kstCar++;
         carID = kstCar;
+
+        logger.info("Створено новий об'єкт класу Car.");
+
     }
 
     public Car() {

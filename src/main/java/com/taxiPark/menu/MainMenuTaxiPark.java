@@ -4,10 +4,14 @@ import com.taxiPark.CallEnterCommandMenu;
 import com.taxiPark.menu.commands.*;
 import com.taxiPark.park.car.Car;
 import com.taxiPark.submenu.commands.ISubMenu;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
 public class MainMenuTaxiPark implements ISubMenu {
+
+    private static final Logger logger = LoggerFactory.getLogger(MainMenuTaxiPark.class);
 
     private final List<IMenuExecute> menu = new ArrayList<>();
 
@@ -25,6 +29,8 @@ public class MainMenuTaxiPark implements ISubMenu {
 
     public void execute(int command, Scanner scanner, List<Car> cars) {
         menu.get(command).execute(scanner, cars);
+        logger.info("Викликано команду менню - "+menu.get(command).getClass().getSimpleName());
+
     }
 
     public void openTaxiParkProgramme(Scanner scanner, List<Car> cars){

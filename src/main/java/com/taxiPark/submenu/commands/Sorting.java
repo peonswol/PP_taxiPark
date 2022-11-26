@@ -5,12 +5,16 @@ import com.taxiPark.CallEnterCommandMenu;
 import com.taxiPark.menu.MainMenuTaxiPark;
 import com.taxiPark.menu.commands.MenuExit;
 import com.taxiPark.park.car.Car;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Sorting implements ISubMenu {
+
+    private static final Logger logger = LoggerFactory.getLogger(Sorting.class);
 
     public void sortByYearManufacture(List<Car> cars) {
         cars.sort(Comparator.comparing(car -> car.getGeneralInfo().getYearManufacture()));
@@ -40,6 +44,7 @@ public class Sorting implements ISubMenu {
         CallEnterCommandMenu callEnterCommandMenu = new CallEnterCommandMenu();
         command = callEnterCommandMenu.enterCommandCheckException(scanner, sizeOfCommands());
         chooseSorting(scanner, command, cars);
+        logger.info("Машини відсортовано, командою - " + command + ".");
     }
 
     public void chooseSorting(Scanner scanner, int command, List<Car> cars){

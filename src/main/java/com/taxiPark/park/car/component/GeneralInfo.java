@@ -1,5 +1,8 @@
 package com.taxiPark.park.car.component;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Serializable;
 
 public class GeneralInfo implements Serializable {
@@ -9,6 +12,8 @@ public class GeneralInfo implements Serializable {
     private double cost;
     private String color;
     private double maxSpeed;
+
+    private static final Logger logger = LoggerFactory.getLogger(GeneralInfo.class);
 
     public String getMarkAndModel() {
         return markAndModel;
@@ -28,6 +33,10 @@ public class GeneralInfo implements Serializable {
 
     public double getMaxSpeed() {
         return maxSpeed;
+    }
+
+    public GeneralInfo() {
+        logger.info("Створено новий об'єкт класу GeneralInfo.");
     }
 
     @Override

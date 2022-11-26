@@ -1,5 +1,8 @@
 package com.taxiPark.park.car.component;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Serializable;
 
 public class FuelInfo implements Serializable {
@@ -8,6 +11,8 @@ public class FuelInfo implements Serializable {
     private String engineType; //тип двигуна
     private double engineCapacity; //об'єм баку
     private double fuelConsumptionFor100km; // витрати пального
+
+    private static final Logger logger = LoggerFactory.getLogger(FuelInfo.class);
 
     public static FuelInfoBuilder builder(){
         return new FuelInfoBuilder();
@@ -31,6 +36,11 @@ public class FuelInfo implements Serializable {
 
     public double getFuelConsumptionFor100km() {
         return fuelConsumptionFor100km;
+    }
+
+    public FuelInfo() {
+
+        logger.info("Створено новий об'єкт класу FuelInfo.");
     }
 
     @Override
