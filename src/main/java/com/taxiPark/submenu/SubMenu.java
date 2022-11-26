@@ -33,8 +33,8 @@ public class SubMenu {
     }
 
     protected void execute(int command, Scanner scanner, List<Car> cars){
-        menu.get(command).execute(scanner, cars);
         logger.info("Викликано команду підменю - "+menu.get(command).getClass().getSimpleName());
+        menu.get(command).execute(scanner, cars);
     }
 
     public void openSubMenu(SubMenu subMenu, Scanner scanner, List<Car> cars) {

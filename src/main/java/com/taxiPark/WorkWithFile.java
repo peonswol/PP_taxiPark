@@ -44,7 +44,7 @@ public class WorkWithFile {
 
         } catch (Exception ex) {
             ex.printStackTrace();
-            logger.info("Виникла помилка із записом файлу "+ex.getMessage());
+            logger.error("Виникла помилка із записом файлу ",ex);
             return false;
         }
     }
@@ -65,7 +65,7 @@ public class WorkWithFile {
 
         } catch (Exception exception) {
             System.out.println("\nError reading file\n\n");
-            logger.info("Виникла помилка із читанням файлу "+exception.getMessage());
+            logger.error("Виникла помилка із читанням файлу ",exception);
             return null;
         }
         return car;

@@ -26,7 +26,7 @@ public class MoreInformation implements Serializable {
     }
 
     public MoreInformation() {
-        logger.info("Створено новий об'єкт класу Car.");
+        logger.info("Створено новий об'єкт класу MoreInformation.");
     }
 
     @Override

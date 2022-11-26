@@ -84,7 +84,7 @@ public class EditCarData {
             } /*catch (ConcurrentModificationException ignored) {}*/
             catch (Exception error) {
                 System.out.println("try again... 0 - 16");
-                logger.info("Користувач ввів некоректний тип даних або вийшов за доступні програмні межі. Помилка "+ error.getMessage());
+                logger.error("Користувач ввів некоректний тип даних або вийшов за доступні програмні межі. Помилка ", error);
             }
         }
     }

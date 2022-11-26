@@ -1,7 +1,7 @@
 <configuration>
 
     <appender name="File" class="ch.qos.logback.core.FileAppender">
-        <file>app.log</file>
+        <file>appTaxiPark.log</file>
         <append>true</append>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %-36logger{36} - %msg%n</pattern>
@@ -25,7 +25,7 @@
     </appender>-->
 
     <root>
-        <appender-ref ref="file"/>
+        <appender-ref ref="File"/>
     </root>
 
     <!--<root level="error">

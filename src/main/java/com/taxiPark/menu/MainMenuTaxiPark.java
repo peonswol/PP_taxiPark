@@ -28,9 +28,8 @@ public class MainMenuTaxiPark implements ISubMenu {
     }
 
     public void execute(int command, Scanner scanner, List<Car> cars) {
-        menu.get(command).execute(scanner, cars);
         logger.info("Викликано команду менню - "+menu.get(command).getClass().getSimpleName());
-
+        menu.get(command).execute(scanner, cars);
     }
 
     public void openTaxiParkProgramme(Scanner scanner, List<Car> cars){

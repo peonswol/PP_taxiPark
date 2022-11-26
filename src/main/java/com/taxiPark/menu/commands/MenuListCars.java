@@ -25,12 +25,10 @@ public class MenuListCars extends ATypeFiltering implements IMenuExecute {
         while (true){
             if (showList(filteredAndSortedCars)) {
                 subMenu.openSubMenu(subMenu, scanner, filteredAndSortedCars);
-                logger.info("Існуючі машини виведено.");
             }
             else {
                 MainMenuTaxiPark menu = new MainMenuTaxiPark();
                 menu.openTaxiParkProgramme(scanner, filteredAndSortedCars);
-                logger.info("Машин немає для виведення.");
             }
         }
     }
@@ -51,9 +49,11 @@ public class MenuListCars extends ATypeFiltering implements IMenuExecute {
                 System.out.println(car.toListString());
                 System.out.println(Color.PURPLE+ "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Color.ANSI_RESET);
             }
+            logger.info("Існуючі машини виведено.");
             return true;
         }
         System.out.print("\nThere are no car\n\n");
+        logger.info("Машин немає для виведення.");
         return false;
     }
 

@@ -58,12 +58,12 @@ public class MenuSelectCarByID implements IMenuExecute, ISubMenu {
                 id = Integer.parseInt(scanner.nextLine());
                 System.out.println("\n");
 
-                logger.info("Користувач ввіж бажане id авто - "+id+".");
+                logger.info("Користувач ввів бажане id авто - "+id+".");
 
                 return id;
             } catch (Exception error) {
                 System.out.println("try again...");
-                logger.error("Користувач ввів некоректний тип даних. Помилка "+ error.getMessage());
+                logger.error("Користувач ввів некоректний тип даних. Помилка ", error);
             }
         }
     }
@@ -86,7 +86,7 @@ public class MenuSelectCarByID implements IMenuExecute, ISubMenu {
                 }
             } catch (Exception error) {
                 System.out.println("try again... 0 - 3");
-                logger.error("Користувач ввів некоректний тип даних або вийшов за доступні програмні межі. Помилка "+ error.getMessage());
+                logger.error("Користувач ввів некоректний тип даних або вийшов за доступні програмні межі. Помилка ", error);
             }
         }
     }

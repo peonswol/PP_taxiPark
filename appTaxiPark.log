@@ -1,0 +1,23 @@
+21:25:59.419 [main] INFO  com.taxiPark.Main                    - Програма почала роботу.
+21:25:59.471 [main] INFO  com.taxiPark.Main                    - Авто прочитано.
+21:25:59.474 [main] INFO  com.taxiPark.Main                    - Авто прочитано.
+21:25:59.475 [main] INFO  com.taxiPark.Main                    - Авто прочитано.
+21:25:59.478 [main] INFO  com.taxiPark.Main                    - Авто прочитано.
+21:25:59.478 [main] INFO  com.taxiPark.Main                    - Авто прочитано.
+21:25:59.478 [main] INFO  c.t.m.a.a.AddingCarsFromFile         - Додано машини з файлів, якщо такі існують.
+21:26:03.977 [main] INFO  com.taxiPark.menu.MainMenuTaxiPark   - Викликано команду менню - MenuListCars
+21:26:03.997 [main] INFO  c.t.menu.commands.MenuListCars       - Існуючі машини виведено.
+21:26:07.152 [main] INFO  com.taxiPark.submenu.SubMenu         - Викликано команду підменю - Filtering
+21:26:21.663 [main] INFO  c.t.submenu.commands.Filtering       - Відфільровано машини, командою - 1--->FilterByYear
+21:26:24.740 [main] INFO  c.t.menu.commands.MenuListCars       - Існуючі машини виведено.
+21:26:29.509 [main] INFO  com.taxiPark.submenu.SubMenu         - Викликано команду підменю - MenuSelectCarByID
+21:26:31.576 [main] INFO  c.t.menu.commands.MenuSelectCarByID  - Користувач ввів бажане id авто - 5.
+21:26:31.578 [main] INFO  c.t.menu.commands.MenuSelectCarByID  - Бажаної машини не знайдено.
+21:26:31.578 [main] INFO  c.t.menu.commands.MenuListCars       - Існуючі машини виведено.
+21:26:35.748 [main] INFO  com.taxiPark.submenu.SubMenu         - Викликано команду підменю - ClearSelection
+21:26:35.749 [main] INFO  c.t.submenu.commands.ClearSelection  - Очищено заклик машин від сортування і фільтрації.
+21:26:35.753 [main] INFO  c.t.menu.commands.MenuListCars       - Існуючі машини виведено.
+21:26:38.226 [main] INFO  com.taxiPark.submenu.SubMenu         - Викликано команду підменю - MenuSelectCarByID
+21:26:39.183 [main] INFO  c.t.menu.commands.MenuSelectCarByID  - Користувач ввів бажане id авто - 5.
+21:26:39.215 [main] INFO  c.t.menu.commands.MenuSelectCarByID  - Знайдено і показано машину з ID - 5.
+21:26:42.284 [main] INFO  com.taxiPark.menu.commands.MenuExit  - Програму завершено.

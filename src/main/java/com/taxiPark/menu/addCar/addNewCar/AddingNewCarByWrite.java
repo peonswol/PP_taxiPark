@@ -163,6 +163,5 @@ public class AddingNewCarByWrite {
 
     public void addNewCarToFile(Car car){
         workWithFile.writeObjToFile(car, car.getCarID());
-        logger.info("Записано нову машину у файл.");
     }
 }
