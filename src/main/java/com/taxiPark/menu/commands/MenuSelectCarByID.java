@@ -9,6 +9,8 @@ import com.taxiPark.menu.editCarData.EditCarData;
 import com.taxiPark.park.AutoPark;
 import com.taxiPark.park.car.Car;
 import com.taxiPark.submenu.commands.ClearSelection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Scanner;
@@ -16,7 +18,10 @@ import java.util.Scanner;
 public class MenuSelectCarByID implements IMenuExecute, ISubMenu {
 
     protected Car car;
+
     protected WorkWithFile workWithFile = new WorkWithFile();
+
+    private static final Logger logger = LoggerFactory.getLogger(MenuSelectCarByID.class);
 
     @Override
     public void execute(Scanner scanner, List<Car> cars) {
@@ -35,9 +40,11 @@ public class MenuSelectCarByID implements IMenuExecute, ISubMenu {
         for (Car car: cars){
             if (car.getCarID() == id){
                 System.out.println(car);
+                logger.info("Знайдено і показано машину з ID - "+id+".");
                 return car;
             }
         }
+        logger.info("Бажаної машини не знайдено.");
         return null;
     }
 
@@ -50,9 +57,13 @@ public class MenuSelectCarByID implements IMenuExecute, ISubMenu {
             try {
                 id = Integer.parseInt(scanner.nextLine());
                 System.out.println("\n");
+
+                logger.info("Користувач ввіж бажане id авто - "+id+".");
+
                 return id;
             } catch (Exception error) {
                 System.out.println("try again...");
+                logger.error("Користувач ввів некоректний тип даних. Помилка "+ error.getMessage());
             }
         }
     }
@@ -75,6 +86,7 @@ public class MenuSelectCarByID implements IMenuExecute, ISubMenu {
                 }
             } catch (Exception error) {
                 System.out.println("try again... 0 - 3");
+                logger.error("Користувач ввів некоректний тип даних або вийшов за доступні програмні межі. Помилка "+ error.getMessage());
             }
         }
     }
@@ -98,13 +110,22 @@ public class MenuSelectCarByID implements IMenuExecute, ISubMenu {
                 case 0 -> {
                     MenuExit exit = new MenuExit();
                     exit.execute(scanner, cars);
+                    logger.info("Користувач вибрав команду - вихід.");
                 }
-                case 1 -> editCarData(scanner, cars);
-                case 2 -> deleteCar(cars);
+                case 1 -> {
+                    editCarData(scanner, cars);
+                    logger.info("Користувач вибрав команду - редагувати дані.");
+                }
+
+                case 2 -> {
+                    deleteCar(cars);
+                    logger.info("Користувач вибрав команду - видалити авто.");
+                }
 
                 case 3 -> {
                     MainMenuTaxiPark mainMenuTaxiPark = new MainMenuTaxiPark();
                     mainMenuTaxiPark.openTaxiParkProgramme(scanner, cars);
+                    logger.info("Користувач вибрав команду - показати головне меню.");
                 }
             }
     }

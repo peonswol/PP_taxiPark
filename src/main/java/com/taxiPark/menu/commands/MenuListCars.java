@@ -6,6 +6,8 @@ import com.taxiPark.menu.MainMenuTaxiPark;
 import com.taxiPark.park.AutoPark;
 import com.taxiPark.park.car.Car;
 import com.taxiPark.submenu.SubMenu;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,16 +17,20 @@ public class MenuListCars extends ATypeFiltering implements IMenuExecute {
 
     private static List<Car> filteredAndSortedCars = new ArrayList<>(AutoPark.getCars());
 
+    private static final Logger logger = LoggerFactory.getLogger(MenuListCars.class);
+
     @Override
     public void execute(Scanner scanner, List<Car> cars) {
         SubMenu subMenu = new SubMenu();
         while (true){
             if (showList(filteredAndSortedCars)) {
                 subMenu.openSubMenu(subMenu, scanner, filteredAndSortedCars);
+                logger.info("Існуючі машини виведено.");
             }
             else {
                 MainMenuTaxiPark menu = new MainMenuTaxiPark();
                 menu.openTaxiParkProgramme(scanner, filteredAndSortedCars);
+                logger.info("Машин немає для виведення.");
             }
         }
     }
@@ -39,11 +45,9 @@ public class MenuListCars extends ATypeFiltering implements IMenuExecute {
 
     public boolean showList(List<Car> cars){
 
-
-
         if(!cars.isEmpty()){
+            showIntoList();
             for (Car car : cars){
-                showIntoList();
                 System.out.println(car.toListString());
                 System.out.println(Color.PURPLE+ "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + Color.ANSI_RESET);
             }
@@ -58,6 +62,5 @@ public class MenuListCars extends ATypeFiltering implements IMenuExecute {
                 "THE LIST OF CARS");
         System.out.print("| ID\t\t|\tmark and model\t| year manufacture |\t\tcost\t\t|\t\tcolor\t\t| max speed | --- |\tfuel type\t| engine capacity | fuel consumption for 100 km\n");
         System.out.print(Color.PURPLE+ "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" + Color.ANSI_RESET);
-
     }
 }

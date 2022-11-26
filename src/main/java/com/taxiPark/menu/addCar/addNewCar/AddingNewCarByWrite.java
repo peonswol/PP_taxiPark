@@ -1,6 +1,8 @@
 package com.taxiPark.menu.addCar.addNewCar;
 
 import com.taxiPark.WorkWithFile;
+import com.taxiPark.menu.addCar.addCarFromFile.AddingCarsFromFile;
+import com.taxiPark.menu.commands.MenuListCars;
 import com.taxiPark.park.AutoPark;
 import com.taxiPark.park.car.Car;
 import com.taxiPark.park.car.component.FuelInfo;
@@ -8,6 +10,8 @@ import com.taxiPark.park.car.component.GeneralInfo;
 import com.taxiPark.park.car.component.MoreInformation;
 import com.taxiPark.park.car.component.TechnicInfo;
 import com.taxiPark.submenu.commands.ClearSelection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Scanner;
@@ -34,12 +38,16 @@ public class AddingNewCarByWrite {
     protected String comfortTypes;
 
     protected WorkWithFile workWithFile = new WorkWithFile();
+
     protected ClearSelection clearSelection = new ClearSelection();
+
+    private static final Logger logger = LoggerFactory.getLogger(AddingNewCarByWrite.class);
 
     public void add(Scanner scanner, List<Car> cars){
 
         initCarData(scanner);
         Car car = createNewCar();
+        logger.info("Створено новий екзепляр авто.");
 
         callAddingCarToFileAndList(scanner, cars, car);
     }
@@ -48,7 +56,10 @@ public class AddingNewCarByWrite {
         cars.add(car);
         addNewCarToFile(car);
 
-        clearSelection.execute(scanner, cars);
+        clearSelection.execute(scanner, MenuListCars.getFilteredAndSortedCars());
+
+        logger.info("Створену машину додано до списку машин автопарку і файлу.");
+
     }
     protected void initCarData(Scanner scanner){
         initGeneralInfo(scanner);
@@ -152,5 +163,6 @@ public class AddingNewCarByWrite {
 
     public void addNewCarToFile(Car car){
         workWithFile.writeObjToFile(car, car.getCarID());
+        logger.info("Записано нову машину у файл.");
     }
 }

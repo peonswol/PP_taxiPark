@@ -2,6 +2,8 @@ package com.taxiPark;
 
 import com.taxiPark.park.AutoPark;
 import com.taxiPark.park.car.Car;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.List;
@@ -10,6 +12,8 @@ public class WorkWithFile {
 
     private final File appFolder = new File((new File(System.getProperty("user.home") + "\\AppData\\Local\\TaxiPark")).getAbsolutePath());
     private final File[] files = appFolder.listFiles();
+
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public boolean writeObjToFile(Object obj, long ID) {
 
@@ -35,10 +39,12 @@ public class WorkWithFile {
             objectOut.writeObject(obj);
             objectOut.close();
             System.out.println("The Car was successfully written to a file");
+            logger.info("Авто записано у файл.");
             return true;
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            logger.info("Виникла помилка із записом файлу "+ex.getMessage());
             return false;
         }
     }
@@ -54,8 +60,12 @@ public class WorkWithFile {
 
             objectInputStream.close();
             fileRead.close();
+
+            logger.info("Авто прочитано.");
+
         } catch (Exception exception) {
             System.out.println("\nError reading file\n\n");
+            logger.info("Виникла помилка із читанням файлу "+exception.getMessage());
             return null;
         }
         return car;
@@ -91,10 +101,12 @@ public class WorkWithFile {
         if (files != null) {
             for (File file : files) {
                 if (file.getName().equals(String.format("Car%d.dat", car.getCarID()))) {
+                    logger.info("Авто видалено.");
                     return file.delete();
                 }
             }
         }
+        logger.warn("Помилка видалення авто.");
         return false;
     }
 }

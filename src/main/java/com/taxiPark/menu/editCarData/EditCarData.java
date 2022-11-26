@@ -10,6 +10,8 @@ import com.taxiPark.park.car.component.GeneralInfo;
 import com.taxiPark.park.car.component.MoreInformation;
 import com.taxiPark.park.car.component.TechnicInfo;
 import com.taxiPark.submenu.commands.ClearSelection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ConcurrentModificationException;
 import java.util.List;
@@ -19,6 +21,8 @@ public class EditCarData {
 
     Car tempCar;
 
+    private static final Logger logger = LoggerFactory.getLogger(EditCarData.class);
+
     public void execute(Scanner scanner, Car car, List<Car> cars){
         tempCar = car;
         int command;
@@ -26,6 +30,7 @@ public class EditCarData {
         while(true) {
             command = chooseChange(scanner);
             changeData(scanner, command, cars);
+            logger.info("Дані авто відредаговано.");
             System.out.println();
             saveChange(scanner, cars);
             System.out.println("\n");
@@ -71,6 +76,7 @@ public class EditCarData {
                 System.out.println("\n");
 
                 if (command <= 16) {
+                    logger.info("Користувач ввів команду, для зміни параметру, - "+command);
                     return command;
                 } else {
                     throw new Exception();
@@ -78,6 +84,7 @@ public class EditCarData {
             } /*catch (ConcurrentModificationException ignored) {}*/
             catch (Exception error) {
                 System.out.println("try again... 0 - 16");
+                logger.info("Користувач ввів некоректний тип даних або вийшов за доступні програмні межі. Помилка "+ error.getMessage());
             }
         }
     }
@@ -203,6 +210,8 @@ public class EditCarData {
 
         AddingNewCarByWrite addingNewCarByWrite = new AddingNewCarByWrite();
         addingNewCarByWrite.addNewCarToFile(tempCar);
+        logger.info("Зміни збережено.");
+
 
         ClearSelection clearSelection = new ClearSelection();
         clearSelection.execute(scanner, cars);
